@@ -39,17 +39,20 @@ type NotificationResult struct {
 
 type Alert struct {
 	// Do not add fields without updating the implementation of isZero.
-	Body         string   `json:"body,omitempty"`
-	Title        string   `json:"title,omitempty"`
-	Action       string   `json:"action,omitempty"`
-	LocKey       string   `json:"loc-key,omitempty"`
-	LocArgs      []string `json:"loc-args,omitempty"`
-	ActionLocKey string   `json:"action-loc-key,omitempty"`
-	LaunchImage  string   `json:"launch-image,omitempty"`
+	Body              string   `json:"body,omitempty"`
+	Title             string   `json:"title,omitempty"`
+	Action            string   `json:"action,omitempty"`
+	LocKey            string   `json:"loc-key,omitempty"`
+	LocArgs           []string `json:"loc-args,omitempty"`
+	ActionLocKey      string   `json:"action-loc-key,omitempty"`
+	LaunchImage       string   `json:"launch-image,omitempty"`
+	ContentIdentifier string   `json:"content-identifier,omitempty"`
+	ContentType       string   `json:"content-type,omitempty"`
+	ContentURL        string   `json:"content-url,omitempty"`
 }
 
 func (a *Alert) isSimple() bool {
-	return len(a.Title) == 0 && len(a.Action) == 0 && len(a.LocKey) == 0 && len(a.LocArgs) == 0 && len(a.ActionLocKey) == 0 && len(a.LaunchImage) == 0
+	return len(a.Title) == 0 && len(a.Action) == 0 && len(a.LocKey) == 0 && len(a.LocArgs) == 0 && len(a.ActionLocKey) == 0 && len(a.LaunchImage) == 0 && len(a.ContentIdentifier) == 0 && len(a.ContentType) == 0 && len(a.ContentURL) == 0
 }
 
 func (a *Alert) isZero() bool {
